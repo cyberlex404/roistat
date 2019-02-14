@@ -92,7 +92,7 @@ class RoistatCloud implements RoistatCloudInterface {
    */
   protected function getKey() {
     if (!$this->key) {
-      $this->key = $this->configFactory->get('roistat.settigns')->get('integration_key');
+      $this->key = $this->configFactory->get('roistat.settings')->get('integration_key');
     }
     return $this->key;
   }

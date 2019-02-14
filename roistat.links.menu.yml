@@ -1,7 +1,6 @@
-roistat.settigns_form:
-  title: 'SettignsForm'
-  route_name: roistat.settigns_form
-  description: 'A description for the menu entry'
-  parent: system.admin_config_system
+roistat.settings:
+  title: 'Roistat'
+  route_name: roistat.settings
+  description: 'Roistat settings'
+  parent: system.admin_config_services
   weight: 99
-

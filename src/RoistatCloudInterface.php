@@ -7,5 +7,10 @@ namespace Drupal\roistat;
  */
 interface RoistatCloudInterface {
 
-
+  /**
+   * @param array $data
+   *
+   * @return mixed
+   */
+  public function leadsAdd(array $data);
 }
