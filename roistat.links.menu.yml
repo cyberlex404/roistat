@@ -1,0 +1,7 @@
+roistat.settigns_form:
+  title: 'SettignsForm'
+  route_name: roistat.settigns_form
+  description: 'A description for the menu entry'
+  parent: system.admin_config_system
+  weight: 99
+

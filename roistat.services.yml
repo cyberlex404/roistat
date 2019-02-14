@@ -1,0 +1,4 @@
+services:
+  roistat.cloud:
+    class: Drupal\roistat\RoistatCloud
+    arguments: ['@http_client', '@config.factory']

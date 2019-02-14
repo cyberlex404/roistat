@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a summary of a webform roistat handler.
+ *
+ * Available variables:
+ * - settings: The current configuration for this email handler.
+ * - handler: The email handler.
+ *
+ * @ingroup themeable
+ */
+#}
+
+
+{% if settings.roistat_integration_key %}<b>{{ 'Integration key:'|t }}</b> {{ settings.roistat_integration_key }}<br />{% endif %}

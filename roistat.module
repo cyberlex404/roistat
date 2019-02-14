@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Contains roistat.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function roistat_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the roistat module.
+    case 'help.page.roistat':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('roistat integration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function roistat_theme() {
+  $themes = [];
+  $themes['webform_handler_roistat_summary'] = [
+    'variables' => ['settings' => NULL, 'handler' => NULL],
+  ];
+  return $themes;
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function roistat_token_info() {
+
+  $roistat_type = [
+    'name' => t('Roistat'),
+    'description' => t('Roistat token.'),
+  ];
+  $roistat_tokens['visit'] = [
+    'name' => t('Cookie roistat_visit'),
+    'description' => t('Cookie roistat_visit.'),
+  ];
+  return [
+    'types' => ['roistat' => $roistat_type],
+    'tokens' => ['roistat' => $roistat_tokens],
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function roistat_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  if ($type == 'roistat') {
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'visit' :
+          $request = \Drupal::request();
+          $value = $request->cookies->has('roistat_visit') ? $request->cookies->getInt('roistat_visit') : 0;
+          $replacements[$original] = $value;
+          break;
+      }
+    }
+  }
+  return $replacements;
+}
+
+

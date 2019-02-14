@@ -1,0 +1,11 @@
+
+roistat.settigns_form:
+  path: '/admin/config/roistat/settigns'
+  defaults:
+    _form: '\Drupal\roistat\Form\SettignsForm'
+    _title: 'SettignsForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
